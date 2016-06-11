@@ -1,0 +1,27 @@
+{
+  "author": "hirowaki",
+  "name": "Sort",
+  "description": "Sort",
+  "homepage": "https://github.com/hirowaki/Sort",
+  "repository": {
+    "url": "git@github.com:hirowaki/Sort.git"
+  },
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=v4.3.0"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha ./test",
+    "posttest": "eslint app test; istanbul check-coverage",
+    "lint": "eslint benchMark lib test",
+    "bench": "node ./BenchMark/benchMark.js"
+  },
+  "dependencies": {
+    "lodash": "*"
+  },
+  "devDependencies": {
+    "eslint": "*",
+    "mocha": "*",
+    "istanbul": "*"
+  }
+}
