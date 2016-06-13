@@ -8,25 +8,25 @@ describe('BubbleSort.', function () {
     describe('simple integer array.', function () {
         it('[10, 5] => [5, 10]', function () {
             assert.deepEqual(sort([10, 5], (a, b) => {
-                return (a - b) > 0;
+                return a > b;
             }), [5, 10]);
         });
 
         it('[5, 4, 3] => [3, 4, 5]', function () {
             assert.deepEqual(sort([5, 4, 3], (a, b) => {
-                return (a - b) > 0;
+                return a > b;
             }), [3, 4, 5]);
         });
 
         it('[3, 4, 5] => [5, 4, 3]', function () {
             assert.deepEqual(sort([3, 4, 5], (a, b) => {
-                return (b - a) > 0;
+                return b > a;
             }), [5, 4, 3]);
         });
 
         it('[3, 5, 4, 7, 8] => [8, 7, 5, 4, 3]', function () {
             assert.deepEqual(sort([3, 5, 4, 7, 8], (a, b) => {
-                return (b - a) > 0;
+                return b > a;
             }), [8, 7, 5, 4, 3]);
         });
     });
@@ -42,7 +42,7 @@ describe('BubbleSort.', function () {
 
         it('[1, 2, 3, 4, 5] => [5, 4, 3, 2, 1]', function () {
             sort(data, (a, b) => {
-                return (b.id - a.id) > 0;
+                return b.id > a.id;
             });
 
             assert.deepEqual(data.map(data => data.id), [5, 4, 3, 2, 1]);
@@ -66,7 +66,7 @@ describe('BubbleSort.', function () {
             const dataA = _.shuffle(src);
             const dataB = _.clone(dataA);
 
-            sort(dataA, (a, b) => {return (a - b) > 0;});
+            sort(dataA, (a, b) => {return a > b;});
             dataB.sort((a, b) => {return a - b;});
             assert.deepEqual(dataA, dataB);
         });

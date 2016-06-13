@@ -35,7 +35,7 @@ function _benchMark(data) {
         }),
         bubble: _test(() => {
             BubbleSort.sort(buffBubble, (a, b) => {
-                return (a.id - b.id) > 0;
+                return a.id > b.id;
             });
         })
     }
